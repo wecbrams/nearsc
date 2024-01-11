@@ -6,7 +6,7 @@ export const products = new PersistentUnorderedMap<string, string>("PRODUCTS");
 
 
 export function setProduct(product: Product): void {
-    let storedProduct = listedProducts.get(product.id);
+    let storedProduct = listedProducts.get(product.id);  // // Instead of using `products`, use `listedProducts` consistently
     if (storedProduct !== null) {
         throw new Error(`a product with ${product.id} already exists`);
     }
@@ -27,6 +27,8 @@ export function getProductslength(): number {
 
 export function buyProduct(productId: string): void {
     const product = getProduct(productId);
+
+    // check for the availability of the product before proceeding with other checks.
 
     if(product) {
         product.updateAvailability()
