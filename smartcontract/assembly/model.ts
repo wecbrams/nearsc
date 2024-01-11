@@ -33,11 +33,11 @@ export class Product {
         if(this.sold >= this.supply) {
             this.available = false;
         }
-        else if(this.supply >= 1) {
+        else if(this.supply > 0) {
             this.available = true;
         }
         else{
-            this.available = true;
+            this.available = false;  // Set to false if supply is 0
         }
     }
 }
